@@ -34,12 +34,14 @@ namespace Microsoft.Xna.Framework.Audio
         public int PendingBufferCount { get; set; }
 
 #if DIRECTX
-        public DynamicSoundEffectInstance(int sampleRate, AudioChannels channels)
+        public DynamicSoundEffectInstance(int sampleRate, AudioChannels channels) : this(sampleRate, channels, 16) {}
+
+        public DynamicSoundEffectInstance(int sampleRate, AudioChannels channels, int bits)
         {
             _sampleRate = sampleRate;
             _channels = channels;
             _dataStreams = new Queue<DataStream>(); 
-            _waveFormat = new WaveFormat(sampleRate, channels == AudioChannels.Mono ? 1 : 2);
+            _waveFormat = new WaveFormat(sampleRate, bits, channels == AudioChannels.Mono ? 1 : 2);
             _xaudio2 = new XAudio2();
             _masteringVoice = new MasteringVoice(_xaudio2);
             _sourceVoice = new SourceVoice(_xaudio2, _waveFormat, true);

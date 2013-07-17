@@ -91,6 +91,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Audio\DynamicSoundEffectInstance.cs" />
+    <Compile Include="Audio\Microphone.cs" />
+    <Compile Include="Audio\MicrophoneState.cs" />
     <Compile Include="Content\ContentReaders\Texture3DReader.cs" />
     <Compile Include="Graphics\IRenderTarget.cs" />
     <Compile Include="Graphics\PackedVector\HalfSingle.cs" />
@@ -437,6 +439,9 @@
     <Reference Include="Microsoft.Xna.Framework">
       <SpecificVersion>False</SpecificVersion>
       <Aliases>MicrosoftXnaFramework</Aliases>
+    </Reference>
+    <Reference Include="WASAPI.Net.WP8">
+      <HintPath>..\..\MonoGame-Dependencies\WASAPI.Net\Windows Phone\ARM\WASAPI.Net.WP8.winmd</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Platform)' == 'x86' ">
